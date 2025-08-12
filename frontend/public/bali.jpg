@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#4FC3F7"/>
+  <circle cx="200" cy="150" r="80" fill="#FFD54F"/>
+  <circle cx="250" cy="120" r="60" fill="#FFD54F"/>
+  <circle cx="150" cy="100" r="50" fill="#FFD54F"/>
+  <rect x="100" y="300" width="200" height="100" fill="#8BC34A"/>
+  <rect x="500" y="350" width="150" height="80" fill="#8BC34A"/>
+  <rect x="300" y="400" width="100" height="60" fill="#8BC34A"/>
+  <text x="400" y="500" font-family="Arial" font-size="24" fill="white" text-anchor="middle">Bali, Indonesia</text>
+</svg>

@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - REACT_APP_API_URL=/api
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=/api
+    networks:
+      - travel-net
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGODB_URI=mongodb://traveluser:travelpass@mongodb:27017/traveldb?authSource=traveldb
+      - PORT=5000
+    networks:
+      - travel-net
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    networks:
+      - travel-net
+
+networks:
+  travel-net:
+    driver: bridge
+
+volumes:
+  mongodb_data:
